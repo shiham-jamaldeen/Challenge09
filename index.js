@@ -3,18 +3,21 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const generateMarkdown = require("./utils/generateMarkdown.js");
 
-// TODO: Create an array of questions for user input
-let questions = [];
-
-// TODO: Create a function to write README file
 function writeToFile(fileName, data) {
+  // TODO: Create a function to write README file
+
   fs.writeFile(fileName, data, (err) =>
-    err ? console.log(err) : console.log("success")
+    err
+      ? console.log(err)
+      : console.log(
+          "Success! Your file was successfully created " + " " + fileName
+        )
   );
 }
 
-// TODO: Create a function to initialize app
 function init() {
+  // TODO: Create a function to initialize app
+  //Call inquirer.prompt to request input from the user
   inquirer
     .prompt([
       {
@@ -42,21 +45,36 @@ function init() {
         message: "What is your email address?",
         name: "emailAddress",
       },
+      {
+        type: "input",
+        message: "What is the usage guidelines for your project?",
+        name: "projectUsage",
+      },
+      {
+        type: "input",
+        message: "What is the contribution guidelines for your project?",
+        name: "contributionGuidelines",
+      },
+      {
+        type: "input",
+        message: "How do you install your project?",
+        name: "projectInstallation",
+      },
+
+      {
+        type: "list",
+        message: "What is the license for your project?",
+        name: "projectLicense",
+        choices: ["MIT", "GNU", "ISC", "Unlicense"],
+        default: "MIT",
+      },
     ])
     .then((answer) => {
-      //print input to
-
-      let data = generateMarkdown(
-        answer.projectTitle
-        // answer.projectDescription,
-        // answer.authorName,
-        // answer.gitHubHandle,
-        // answer.emailAddress
-      );
-      //console.timeLog(data);
+      //retreive answers from the inquirer.prompt function and call the markdown generator JS file
+      let data = generateMarkdown(answer);
+      //now call the writeToFile function to
       const fileName = "./utils/ReadMe-generated.md";
       writeToFile(fileName, data);
-      //console.log("Success! Your data has been recorded: " + fileName);
     });
 }
 
