@@ -65,4 +65,4 @@ Do you have any queries?
 Please feel to contact me via the following channels:
 
 - Github handle: https://github.com/shiham-jamaldeen
-- Email: shiham@mail.com
+- Email: shiham@mail.com.au
