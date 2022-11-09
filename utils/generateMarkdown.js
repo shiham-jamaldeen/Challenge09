@@ -161,7 +161,7 @@ ${answer.contributionGuidelines}
 ## Questions?
 Do you have any queries? 
 Please feel to contact me via the following channels:
-- Github handle: "${answer.gitHubHandle}."
+- Github handle: https//github.com/${answer.gitHubHandle}
 - Email: ${answer.emailAddress}
 `;
   return answers;
