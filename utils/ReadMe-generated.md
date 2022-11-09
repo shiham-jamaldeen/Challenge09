@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a command-line application that genrates a professional README.md (markdown) file that can be distributed with your open source or github project. The program is created using `node.js` and utilises the npm package `inquirer`..
+This is a command-line application that genrates a professional README.md (markdown) file that can be distributed with your open source or github project. The program is created using `node.js` and utilises the npm package `inquirer`.
 
 ## Table of Contents
 
@@ -28,9 +28,9 @@ Open the command-line application from the location where you have installed/clo
 
 ## Licence
 
-Copyright (c) [2022] [Shiham Jamaldeen]
+    Copyright (c) [2022] [Shiham Jamaldeen]
 
-MIT License
+    MIT License
 
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
@@ -59,5 +59,5 @@ Feel free to fork this repo and make it your own. For guidance see:
 
 Do you have any queries?
 Please feel to contact me via the following channels:
-Github handle: "shiham-jamaldeen."
-Email: shiham@mail.com.au
+- Github handle: "shiham-jamaldeen."
+- Email: shiham@mail.com.au
