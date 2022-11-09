@@ -19,6 +19,24 @@ function renderLicenseBadge(projectLicense) {
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
+function installer(projectInstallation) {
+  const installURL = "https://www.npmjs.com/package/inquirer/v/8.2.4";
+  return installURL;
+}
+function forkRepo(contributionGuidelines) {
+  const forkRepoURL =
+    "https://docs.github.com/en/get-started/quickstart/fork-a-repo";
+  return forkRepoURL;
+}
+function screenshots(includeScreenshots) {
+  if (includeScreenshots === true) {
+    const screenshotsLink = "![Demo of the project.](./images/demo-video.gif)";
+    return screenshotsLink;
+  } else {
+    const screenshotsLink = "**No screenshots added**";
+    return screenshotsLink;
+  }
+}
 function renderLicenseSection(projectLicense) {
   // TODO: Create a function to generate markdown for README
   if (projectLicense === "GNU") {
@@ -101,9 +119,9 @@ function renderLicenseSection(projectLicense) {
   }
 }
 function generateMarkdown(answer) {
-  let answers = `# ${answer.projectTitle}
-
-  ![${answer.projectLicense}](${renderLicenseBadge(answer.projectLicense)})
+  let answers = `# ${answer.projectTitle} ![${
+    answer.projectLicense
+  }](${renderLicenseBadge(answer.projectLicense)})
 
   ## Description
    ${answer.projectDescription}.
@@ -112,32 +130,39 @@ function generateMarkdown(answer) {
 ## Table of Contents
 
 - [Installation](#installation)
-- [Usage and test instructions](#usage)
+- [Usage](#usage)
 - [License](#license)
-- [How to contribute](#contribute)
+- [Contribution](#Contribution)
 - [Questions?](#questions)
 <hr/>
 
 ## Installation
 
-${answer.projectInstallation}
+${answer.projectInstallation} 
+[Inquirer package](${installer(answer.projectInstallation)}) 
 
-## Usage and test instructions
-${answer.projectUsage}.
+## Usage
+
+${answer.projectUsage}
+
+### Screenshots and demo
+${screenshots(answer.includeScreenshots)}
 
 ## Licence
 Copyright (c) [2022]  [${answer.authorName}]
 
 ${renderLicenseSection(answer.projectLicense)}
 
-## How to Contribute
+## Contribution
 
-${answer.contributionGuidelines}.
+${answer.contributionGuidelines}
+ [Github fork a repo](${forkRepo(answer.contributionGuidelines)})
 
 ## Questions?
-Do you have any queries? Please feel to contact me via my Github handle: "${
-    answer.gitHubHandle
-  }."
+Do you have any queries? 
+Please feel to contact me via the following channels:
+- Github handle: "${answer.gitHubHandle}."
+- Email: ${answer.emailAddress}
 `;
   return answers;
 }

@@ -24,6 +24,14 @@ function init() {
         type: "input",
         message: "What is the title of your project? (Required)",
         name: "projectTitle",
+        validate: function (projectTitle) {
+          if (projectTitle) {
+            return true;
+          } else {
+            console.log("\n You must enter a project title. Please try again!");
+            return false;
+          }
+        },
       },
       {
         type: "input",
@@ -34,11 +42,31 @@ function init() {
         type: "input",
         message: "What is your name? (Required)",
         name: "authorName",
+        validate: function (authorName) {
+          if (authorName) {
+            return true;
+          } else {
+            console.log(
+              "\n You must enter the project author name. Please try again!"
+            );
+            return false;
+          }
+        },
       },
       {
         type: "input",
         message: "What is your Github handle? (Required)",
         name: "gitHubHandle",
+        validate: function (authorName) {
+          if (authorName) {
+            return true;
+          } else {
+            console.log(
+              "\n You must enter the project author name. Please try again!"
+            );
+            return false;
+          }
+        },
       },
       {
         type: "input",
@@ -47,13 +75,15 @@ function init() {
       },
       {
         type: "input",
-        message: "What is the usage guidelines for your project?",
+        message:
+          "How do you use your project (HINT: Include any instructions how to run your project):",
         name: "projectUsage",
       },
+      //do you want to include any screenshots, these must be pre-saved in your project "images"folder
       {
-        type: "input",
-        message: "What is the contribution guidelines for your project?",
-        name: "contributionGuidelines",
+        type: "confirm",
+        message: "Do you want to include screenshots?",
+        name: "includeScreenshots",
       },
       {
         type: "input",
@@ -67,6 +97,11 @@ function init() {
         name: "projectLicense",
         choices: ["MIT", "GNU", "ISC", "Unlicense"],
         default: "MIT",
+      },
+      {
+        type: "input",
+        message: "What are the contribution guidelines for your project?",
+        name: "contributionGuidelines",
       },
     ])
     .then((answer) => {
