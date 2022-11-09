@@ -24,7 +24,7 @@ Open the command-line application from the location where you have installed/clo
 
 ### Screenshots and demo
 
-![Demo of the project.](./images/demo-video.gif)
+![Demo of the project](./images/DemoReadmeGenerator.gif)
 
 ## Licence
 
